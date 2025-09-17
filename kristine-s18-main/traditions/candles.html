@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>18 Candles</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary-lavender: #8a68c8;
+      --lavender-hover: #b47ee2;
+      --dark-text: #5C5470;
+      --light-bg: #F8F5F1;
+      --white: #FFFFFF;
+      --border-color: #EAE0DA;
+      --font-script: 'Great Vibes', cursive;
+      --font-heading: 'Playfair Display', serif;
+      --font-body: 'Poppins', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--light-bg);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+    }
+
+    .tradition-container {
+      width: 100%;
+      max-width: 450px;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.79), rgba(255, 255, 255, 0.668)),
+        url('https://i.pinimg.com/736x/72/4f/12/724f12b549baece08417f2ad9cf188a2.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      color: var(--dark-text);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header { margin-bottom: 20px; text-align: center; }
+
+    .header-content { position: relative; display: inline-block; }
+
+    .eighteen {
+      font-family: var(--font-heading);
+      font-size: 300px;
+      font-weight: 700;
+      color: var(--primary-lavender);
+      opacity: 0.35;
+      line-height: 1;
+    }
+
+    .title-text {
+      font-family: var(--font-script);
+      font-size: 100px;
+      color: var(--dark-text);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-shadow: 0 2px 8px rgba(255, 255, 255, 0.7);
+    }
+
+    .main-photo {
+      width: 100%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .intro-text {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 20px 0;
+      padding: 0 15px;
+    }
+
+    .floral-divider {
+      margin: 30px auto;
+      width: 100px;
+      opacity: 0.5;
+    }
+
+    .floral-divider path, .floral-divider circle {
+      stroke: var(--primary-lavender);
+      fill: var(--primary-lavender);
+    }
+
+    .name-list {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0 40px 0;
+      counter-reset: name-counter;
+      text-align: center;
+    }
+
+    .name-list li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      font-size: 1.2rem;
+      border-bottom: 1px solid var(--border-color);
+      opacity: 0;
+      animation: slideUpFadeIn 0.8s ease-out forwards;
+    }
+
+    .name-list li::before {
+      counter-increment: name-counter;
+      content: counter(name-counter) ".";
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--primary-lavender);
+      font-size: 1.1rem;
+    }
+
+    .name-list li:nth-child(1) { animation-delay: 0.1s; }
+    .name-list li:nth-child(2) { animation-delay: 0.2s; }
+    .name-list li:nth-child(3) { animation-delay: 0.3s; }
+    .name-list li:nth-child(4) { animation-delay: 0.4s; }
+    .name-list li:nth-child(5) { animation-delay: 0.5s; }
+    .name-list li:nth-child(6) { animation-delay: 0.6s; }
+    .name-list li:nth-child(7) { animation-delay: 0.7s; }
+    .name-list li:nth-child(8) { animation-delay: 0.8s; }
+    .name-list li:nth-child(9) { animation-delay: 0.9s; }
+    .name-list li:nth-child(10) { animation-delay: 1.0s; }
+    .name-list li:nth-child(11) { animation-delay: 1.1s; }
+    .name-list li:nth-child(12) { animation-delay: 1.2s; }
+    .name-list li:nth-child(13) { animation-delay: 1.3s; }
+    .name-list li:nth-child(14) { animation-delay: 1.4s; }
+    .name-list li:nth-child(15) { animation-delay: 1.5s; }
+    .name-list li:nth-child(16) { animation-delay: 1.6s; }
+    .name-list li:nth-child(17) { animation-delay: 1.7s; }
+    .name-list li:nth-child(18) { animation-delay: 1.8s; }
+    .name-list li:last-child { border-bottom: none; }
+
+    .reminder {
+      margin-top: 30px;
+    }
+
+    .reminder h3 {
+      font-family: var(--font-script);
+      font-size: 2.5rem;
+      color: var(--primary-lavender);
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+
+    .reminder p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      padding: 0 20px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary-lavender);
+      color: var(--white);
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: var(--lavender-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .back-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .music-player {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45px;
+      height: 45px;
+      background: var(--white);
+      border-radius: 50%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .music-player.playing {
+      background: linear-gradient(45deg, #f05886, #D98BA0);
+    }
+
+    .music-player.playing svg {
+      fill: var(--white);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUpFadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 500px) {
+      body { padding: 10px; }
+      .tradition-container { padding: 25px 15px; }
+      .eighteen { font-size: 12rem; }
+      .title-text { font-size: 3.5rem; }
+      .name-list li { font-size: 1rem; padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tradition-container">
+    <header>
+      <div class="header-content">
+        <span class="eighteen">18</span>
+        <h1 class="title-text">Candles</h1>
+      </div>
+      <img src="../Image/dudz6.jpeg" alt="Kristine's 18th Birthday Photo" class="main-photo">
+    </header>
+
+    <p class="intro-text">
+      These 18 candles are a symbol of every wish, every dream, and every memory shared with the amazing people in my life. Thank you for your love.
+    </p>
+
+    <svg class="floral-divider" xmlns="http://www.w3.org/2000/svg" width="100" height="20" viewBox="0 0 100 20">
+      <path d="M0 10 C 10 0, 20 0, 30 10 S 40 20, 50 10 S 60 0, 70 10 S 80 20, 90 10 C 95 5, 100 5, 100 10" stroke="#D98BA0" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <circle cx="50" cy="10" r="3"/>
+    </svg>
+
+    <ul class="name-list">
+      <li>Sherry Ann Danao</li>
+      <li>Angeline Macaso</li>
+      <li>Precious Leyn Danao</li>
+      <li>Jamaica Mansibang</li>
+      <li>Richel Baui</li>
+      <li>Diana Rose Malta</li>
+      <li>Lorie Jane Marayag</li>
+      <li>Christian Joy Tortal</li>
+      <li>Jasmin Mansibang</li>
+      <li>Janary Bayug</li>
+      <li>Cassandra Dabo</li>
+      <li>Kezia Marayag</li>
+      <li>Marian Bingayan</li>
+      <li>Rishan Avrill Cammayo</li>
+      <li>Princess Labandero</li>
+      <li>Lykalyn Tumaliuan </li>
+      <li>Laurice Pael</li>
+      <li>Jamaica Limtuaco</li>
+    </ul>
+
+    <div class="reminder">
+      <h3>A Gentle Reminder</h3>
+      <p>It’s very important that you confirm your participation. Kindly look for your name in one of the 18 traditions.</p>
+    </div>
+
+    <a href="./gifts.html" class="back-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      <span>18 Treasures</span>
+    </a>
+  </div>
+
+  <div class="music-player" id="musicPlayer">
+    <audio id="bg-music" src="../audio/high-school-musical-cast-can-i-have-this-dance.mp3" loop></audio>
+    <svg id="play-pause-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#D98BA0">
+      <path id="play-path" d="M8 5v14l11-7z"/>
+      <path id="pause-path" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" style="display:none;"/>
+    </svg>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const music = document.getElementById('bg-music');
+        const musicPlayer = document.getElementById('musicPlayer');
+        const playPath = document.getElementById('play-path');
+        const pausePath = document.getElementById('pause-path');
+        const togglePlay = () => { if (music.paused) { music.play().then(() => { playPath.style.display = 'none'; pausePath.style.display = 'block'; musicPlayer.classList.add('playing'); }); } else { music.pause(); playPath.style.display = 'block'; pausePath.style.display = 'none'; musicPlayer.classList.remove('playing'); } };
+        musicPlayer.addEventListener('click', togglePlay);
+        const musicStatus = sessionStorage.getItem('musicStatus');
+        if (musicStatus) { const { time, isPlaying } = JSON.parse(musicStatus); music.currentTime = time; if (isPlaying) { music.addEventListener('canplaythrough', () => { music.play(); playPath.style.display = 'none'; pausePath.style.display = 'block'; musicPlayer.classList.add('playing'); }, { once: true }); } }
+        window.addEventListener('beforeunload', () => { const musicInfo = { time: music.currentTime, isPlaying: !music.paused }; sessionStorage.setItem('musicStatus', JSON.stringify(musicInfo)); });
+    });
+  </script>
+
+</body>
+</html>
