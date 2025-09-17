@@ -238,6 +238,7 @@ header::before {
     display: flex;
     justify-content: center;
     gap: 15px;
+    align-items: center; /* Ensure vertical alignment */
 }
 
 .time-box {
@@ -245,51 +246,46 @@ header::before {
     padding: 10px;
     border-radius: 8px;
     width: 80px;
+    height: 100px; /* Explicit height for uniformity */
     border: 1px solid var(--border-color);
     animation: countdownPulse 2s infinite;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(5px);
     background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
-.time-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(241, 177, 113, 0.3);
-}
-
-@keyframes countdownPulse {
-    0%, 100% { box-shadow: 0 0 5px rgba(138, 104, 200, 0.2); }
-    50% { box-shadow: 0 0 15px rgba(138, 104, 200, 0.4); }
-}
-
-/* Make the font-size responsive */
 .time-box span {
     display: block;
-    font-size: 4vw; /* 4% of the viewport width */
+    font-size: 4vw;
     font-weight: 500;
     color: var(--primary-lavender);
     margin-bottom: 5px;
     transition: transform 0.2s ease;
 }
 
-/* Responsive font size adjustments for smaller screens */
+/* Adjust responsive font sizes */
 @media (max-width: 768px) {
     .time-box span {
-        font-size: 6vw; /* Larger font size on tablets */
+        font-size: 6vw;
     }
 }
 
 @media (max-width: 600px) {
     .time-box span {
-        font-size: 8vw; /* Larger font size on phones */
+        font-size: 8vw;
     }
 }
 
 @media (max-width: 400px) {
     .time-box span {
-        font-size: 10vw; /* Even larger font size on small screens */
+        font-size: 10vw;
     }
 }
+
 
 /* --- Event Details Section --- */
 .event-details {
