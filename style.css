@@ -245,7 +245,7 @@ header::before {
     background: var(--light-bg);
     padding: 10px;
     border-radius: 8px;
-    width: 80px;
+    width: 100px;
     height: 100px; /* Explicit height for uniformity */
     border: 1px solid var(--border-color);
     animation: countdownPulse 2s infinite;
