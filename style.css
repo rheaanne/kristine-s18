@@ -262,6 +262,7 @@ header::before {
     display: block;
     font-size: 50px;
     font-weight: 500;
+    font-display: center;
     color: var(--primary-lavender);
     margin-bottom: 5px;
     transition: transform 0.2s ease;
